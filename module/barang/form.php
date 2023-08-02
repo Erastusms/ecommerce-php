@@ -36,15 +36,23 @@ if ($barang_id) {
     <div class="element-form">
         <label>Kategori</label>
         <span>
-            <select name="kategori_ id">
+            <select name="kategori_id">
                 <?php
                 $query = mysqli_query($koneksi, "SELECT kategori_id, kategori FROM kategori WHERE status='on' ORDER BY kategori ASC");
                 while ($row = mysqli_fetch_assoc($query)) {
+                    // if ($kategori_id == $row['kategori_id']) {
+                    //     echo "<option value='$row[kategori_id]' selected>$row[kategori]</option>";
+                    // } else {
+                    //     echo "<option value='$row[kategori_id]'>$row[kategori]</option>";
+                    // }
+                    // echo '<option value="' . $value . '" ' . (($value == 'United States') ? 'selected="selected"' : "") . '>' . $value . '</option>';
+                    $selected = "";
                     if ($kategori_id == $row['kategori_id']) {
-                        echo "<option value='$row[kategori_id]' selected>$row[kategori]</option>";
-                    } else {
-                        echo "<option value='$row[kategori_id]'>$row[kategori]</option>";
+                        $selected = "selected";
                     }
+                    // echo '<option value="' . $row['kategori_id'] . '" ' . (($kategori_id == $row['kategori_id']) ? 'selected' : "") . '>' .
+                    //     $row['kategori'] . '</option>';
+                    echo "<option value='$row[kategori_id]' $selected>$row[kategori]</option>";
                 }
                 ?>
 

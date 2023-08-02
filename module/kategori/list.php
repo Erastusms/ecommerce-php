@@ -10,10 +10,10 @@ if (mysqli_num_rows($queryKategori) === 0) {
     echo "<h3>Saat ini belum ada nama kategori di dalam table kategori</h3>";
 } else {
     echo "<table class='table-list'>";
-    echo "<tr>
-        <th>No</th>
-        <th>Kategori</th>
-        <th>Status</th>
+    echo "<tr class='baris-title'>
+        <th class='kolom-nomor'>No</th>
+        <th class='kiri'>Kategori</th>
+        <th class='tengah'>Status</th>
         <th>Action</th>
         </tr>";
 

@@ -5,6 +5,7 @@ include_once("function/helper.php");
 include_once("function/koneksi.php");
 
 $page = isset($_GET['page']) ? $_GET['page'] : false;
+$kategori_id = isset($_GET['kategori_id']) ? $_GET['kategori_id'] : false;
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
 $nama = isset($_SESSION['nama']) ? $_SESSION['nama'] : false;
@@ -52,7 +53,8 @@ $level = isset($_SESSION['level']) ? $_SESSION['level'] : false;
             if (file_exists($filename)) {
                 include_once($filename);
             } else {
-                echo "Maaf file tersebut tidak ada di dalam sistem";
+                include_once("main.php");
+                // echo "Maaf file tersebut tidak ada di dalam sistem";
             }
             ?>
         </div>

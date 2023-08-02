@@ -11,7 +11,7 @@ if (mysqli_num_rows($queryBarang) === 0) {
     echo "<h3>Saat ini belum ada nama barang di dalam table barang</h3>";
 } else {
     echo "<table class='table-list'>";
-    echo "<tr>
+    echo "<tr class='baris-title'>
         <th class='kolom-nomor'>No</th>
         <th class='kiri'>Barang</th>
         <th class='kiri'>Kategori</th>
