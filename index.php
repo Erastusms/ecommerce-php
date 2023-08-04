@@ -10,7 +10,13 @@ $kategori_id = isset($_GET['kategori_id']) ? $_GET['kategori_id'] : false;
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
 $nama = isset($_SESSION['nama']) ? $_SESSION['nama'] : false;
 $level = isset($_SESSION['level']) ? $_SESSION['level'] : false;
+$keranjang = isset($_SESSION['keranjang']) ? $_SESSION['keranjang'] : array();
+$totalBarang = count($keranjang);
 
+// console log array di php
+// echo "<pre>";
+// print_r($keranjang);
+// echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +47,7 @@ $level = isset($_SESSION['level']) ? $_SESSION['level'] : false;
 <body>
     <div id="container">
         <div id="header">
-            <a href="<?php echo BASE_URL . "index.php?page=login"; ?>">
+            <a href="<?php echo BASE_URL . "index.php"; ?>">
                 <img src="<?php echo BASE_URL . "images/logo.png"; ?>" />
             </a>
 
@@ -61,6 +67,7 @@ $level = isset($_SESSION['level']) ? $_SESSION['level'] : false;
                 </div>
                 <a href="<?php echo BASE_URL . "index.php?page=keranjang"; ?>" id="button-keranjang">
                     <img src="<?php echo BASE_URL . "images/cart.png"; ?>" />
+                    <?php if($totalBarang != 0) {echo "<span class='total-barang'>$totalBarang</span>"; } ?>
                 </a>
             </div>
         </div>
