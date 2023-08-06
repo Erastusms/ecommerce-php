@@ -61,8 +61,12 @@ echo "<div id='frame-button-keranjang'>
             data: "barang_id=" + barang_id + "&value=" + value
         })
             .done(function (data) {
+                var json = $.parseJSON(data);
+                if (json.status != true) {
+                    alert(json.pesan);
+                }
                 location.reload();
-            })
+            });
     })
 
 </script>
