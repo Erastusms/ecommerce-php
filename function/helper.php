@@ -21,15 +21,26 @@ function kategori($kategori_id = false)
 
     while ($row = mysqli_fetch_assoc($query)) {
         $isActive = "";
+        $kategori = strtolower(($row['kategori']));
         if ($kategori_id == $row['kategori_id']) {
             $isActive = "active";
         }
         $string .= "<li>
-              <a href='" . BASE_URL . "index.php?kategori_id=$row[kategori_id]' class='$isActive'>$row[kategori]</a>
+              <a href='" . BASE_URL . "$row[kategori_id]/$kategori.html' class='$isActive'>$row[kategori]</a>
               </li>";
     }
 
     $string .= "</ul></div>";
 
     return $string;
+}
+
+function admin_only($module, $level)
+{
+    if ($level != "superadmin") {
+        $admin_pages = array("kategori", "barang", "kota", "user", "banner");
+        if (in_array($module, $admin_pages)) {
+            header("location: " . BASE_URL);
+        }
+    }
 }

@@ -12,6 +12,8 @@ $harga = $_POST['harga'];
 $stok = $_POST['stok'];
 $update_gambar = "";
 
+admin_only("barang", $level);
+
 if (!empty($_FILES["file"]["name"])) {
     $nama_file = $_FILES["file"]["name"];
     move_uploaded_file($_FILES["file"]["tmp_name"], "../../images/barang/" . $nama_file);

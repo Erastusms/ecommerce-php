@@ -1,8 +1,8 @@
 <?php
 if ($user_id == false) {
-    $_SESSION["proses_pemsanan"] = true;
+    $_SESSION["proses_pesanan"] = true;
 
-    header("Location: " . BASE_URL . "index.php?page=login");
+    header("Location: " . BASE_URL . "login.html");
     exit;
 }
 ?>

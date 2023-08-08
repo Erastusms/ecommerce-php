@@ -2,6 +2,8 @@
 include("../../function/koneksi.php");
 include("../../function/helper.php");
 
+admin_only("kategori", $level);
+
 $kategori = $_POST['kategori'];
 $status = $_POST['status'];
 $button = $_POST['button'];

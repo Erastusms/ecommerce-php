@@ -4,13 +4,11 @@ if ($user_id) {
     $action = isset($_GET['action']) ? $_GET['action'] : false;
     $mode = isset($_GET['mode']) ? $_GET['mode'] : false;
 
-    if ($level == "customer") {
-        $module = "pesanan";
-    }
 } else {
     header("location: " . BASE_URL . "index.php?page=login");
 }
 
+admin_only($module, $level);
 ?>
 
 <div id="bg-page-profile">
